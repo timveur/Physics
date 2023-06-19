@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physics.Android", "Physics\Physics.Android\Physics.Android.csproj", "{D023DC90-AA80-4BB9-A937-2946A7210AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physics", "Physics\Physics\Physics.csproj", "{E558103E-8B68-4071-8C0D-3F0708F1AE70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D023DC90-AA80-4BB9-A937-2946A7210AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D023DC90-AA80-4BB9-A937-2946A7210AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D023DC90-AA80-4BB9-A937-2946A7210AFB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D023DC90-AA80-4BB9-A937-2946A7210AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D023DC90-AA80-4BB9-A937-2946A7210AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D023DC90-AA80-4BB9-A937-2946A7210AFB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E558103E-8B68-4071-8C0D-3F0708F1AE70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E558103E-8B68-4071-8C0D-3F0708F1AE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E558103E-8B68-4071-8C0D-3F0708F1AE70}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E558103E-8B68-4071-8C0D-3F0708F1AE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E558103E-8B68-4071-8C0D-3F0708F1AE70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E558103E-8B68-4071-8C0D-3F0708F1AE70}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39BFA530-92C1-4855-BC21-DA1C03F73E9E}
+	EndGlobalSection
+EndGlobal
