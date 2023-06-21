@@ -35,7 +35,8 @@ namespace Physics.Views
             }
         }
 
-        private async void SectionPicker_SelectedIndexChanged(object sender, EventArgs e)
+
+        private async void SectionPickerSelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -47,59 +48,77 @@ namespace Physics.Views
                         // Загрузка глав из выбранного раздела во второй Picker
                         List<Chapter> chaptersInSection = chapters.FindAll(c => c.ParentId == selectedSection.IdChapter);
                         ChapterPicker.ItemsSource = chaptersInSection;
+                        ChapterPicker.IsEnabled = true;
+                        ChapterPicker.Title = "Выберите главу";
+                        ParagraphPicker.Title = "Сначала выберите главу";
                     }
 
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Ошибка", Convert.ToString(ex), "OK");
+                await DisplayAlert("Ошибка", "Возникла непредвиденная ошибка.", "OK");
                 throw;
             }
         }
 
-        private void ChapterPicker_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ChapterPickerSelectedIndexChanged(object sender, EventArgs e)
         {
-            Chapter selectedChapter = (Chapter)ChapterPicker.SelectedItem;
-
-            if (selectedChapter != null)
+            try
             {
-                if (chapters != null)
+                Chapter selectedChapter = (Chapter)ChapterPicker.SelectedItem;
+                if (selectedChapter != null)
                 {
-                    // Загрузка параграфов из выбранной главы в третий Picker
-                    List<Chapter> paragraphsInChapter = chapters.FindAll(c => c.ParentId == selectedChapter.IdChapter);
-                    ParagraphPicker.ItemsSource = paragraphsInChapter;
+                    if (chapters != null)
+                    {
+                        // Загрузка параграфов из выбранной главы в третий Picker
+                        List<Chapter> paragraphsInChapter = chapters.FindAll(c => c.ParentId == selectedChapter.IdChapter);
+                        ParagraphPicker.ItemsSource = paragraphsInChapter;
+                        ParagraphPicker.IsEnabled = true;
+                        ParagraphPicker.Title = "Выберите параграф";
+                    }
                 }
+            }
+
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ошибка", "Возникла непредвиденная ошибка.", "OK");
+                throw;
             }
         }
 
 
-        private async void ParagraphPicker_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ParagraphPickerSelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                var selectedParagraph = (Chapter)ParagraphPicker.SelectedItem;
-                int idParagraph = Convert.ToInt32(selectedParagraph.IdChapter);
-                string titleParagraph = Convert.ToString(selectedParagraph.TitleChapter);
-                string fileName = ChaptersController.GetChapterFile(idParagraph); // Получите название файла из API на основе выбранного элемента
-                if (String.IsNullOrEmpty(fileName))
+                if (idChapter == 0)
                 {
-                    await DisplayAlert("Ошибка", "Файл параграфа не найден", "OK");
+                    ParagraphPicker.Title = "Сначала выберите главу";
                 }
                 else
                 {
-                    await Navigation.PushAsync(new ParagraphsPage(fileName, titleParagraph));
+                    var selectedParagraph = (Chapter)ParagraphPicker.SelectedItem;
+                    int idParagraph = Convert.ToInt32(selectedParagraph.IdChapter);
+                    string titleParagraph = Convert.ToString(selectedParagraph.TitleChapter);
+                    string fileName = ChaptersController.GetChapterFile(idParagraph); // Получение названия файла из API на основе выбранного элемента
+                    if (String.IsNullOrEmpty(fileName))
+                    {
+                        await DisplayAlert("Ошибка", "Файл параграфа не найден", "OK");
+                    }
+                    else
+                    {
+                        await Navigation.PushAsync(new ParagraphsPage(fileName, titleParagraph));
+                    }
                 }
 
 
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Ошибка", Convert.ToString(ex), "OK");
+                await DisplayAlert("Ошибка", "Возникла непредвиденная ошибка.", "OK");
                 throw;
             }
-
-
         }
     }
 }

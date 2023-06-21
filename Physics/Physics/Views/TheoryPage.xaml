@@ -4,9 +4,9 @@
              x:Class="Physics.Views.TheoryPage" Title="Теория">
     <ContentPage.Content>
         <StackLayout Background="#00836e" Padding="5">
-            <Picker x:Name="SectionPicker" Title="Выберите раздел" TextColor="White" ItemDisplayBinding="{Binding TitleChapter}" SelectedIndexChanged="SectionPicker_SelectedIndexChanged"/>
-            <Picker x:Name="ChapterPicker" Title="Выберите главу" TextColor="White" ItemDisplayBinding="{Binding TitleChapter}" SelectedIndexChanged="ChapterPicker_SelectedIndexChanged"/>
-            <Picker x:Name="ParagraphPicker" Title="Выберите параграф" TextColor="White" ItemDisplayBinding="{Binding TitleChapter}" SelectedIndexChanged="ParagraphPicker_SelectedIndexChanged"></Picker>
+            <Picker x:Name="SectionPicker" Title="Выберите раздел" TextColor="White" ItemDisplayBinding="{Binding TitleChapter}" SelectedIndexChanged="SectionPickerSelectedIndexChanged"/>
+            <Picker x:Name="ChapterPicker" Title="Сначала выберите раздел" TextColor="White" ItemDisplayBinding="{Binding TitleChapter}" SelectedIndexChanged="ChapterPickerSelectedIndexChanged" IsEnabled="False"/>
+            <Picker x:Name="ParagraphPicker" Title="Сначала выберите раздел и главу" TextColor="White" ItemDisplayBinding="{Binding TitleChapter}" SelectedIndexChanged="ParagraphPickerSelectedIndexChanged" IsEnabled="False"></Picker>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
