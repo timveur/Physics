@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Physics.Controllers;
+using Physics.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,13 @@ namespace Physics.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FormulasPage : ContentPage
     {
+        public List<Formula> listFormula { get; set; }
         public FormulasPage()
         {
             InitializeComponent();
+            listFormula = FormulasController.GetFormulas();
+            FormulasListView.ItemsSource = listFormula;
+
         }
     }
 }

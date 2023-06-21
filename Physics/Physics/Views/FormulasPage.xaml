@@ -5,9 +5,25 @@
              Title="Формулы">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="FormulasListView" BackgroundColor="#00836e" RowHeight="150" SeparatorColor="DeepSkyBlue">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView Padding="15,5,0,0">
+                                <Grid VerticalOptions="CenterAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding TitleFormula}" TextColor="Beige" VerticalOptions="StartAndExpand" FontSize="16"/>
+                                    <Image Grid.Row="1" Source="{Binding PhotoFormulaPath}" VerticalOptions="EndAndExpand"/>
+                                </Grid>
+                            </ContentView>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

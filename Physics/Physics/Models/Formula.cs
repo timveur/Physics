@@ -12,5 +12,11 @@ namespace Physics.Models
 
         public string TitleFormula { get; set; }
 
+        public string PhotoFormulaPath
+        {
+            get
+            { return "http://188.234.244.32/0_mobile/Img/" + PhotoFormula; }
+        }
+
     }
 }
