@@ -13,6 +13,7 @@ namespace Physics.Views
     public partial class TheoryPage : ContentPage
     {
         List<Chapter> chapters;
+        int idChapter = 0;
         public TheoryPage()
         {
             InitializeComponent();
@@ -52,7 +53,6 @@ namespace Physics.Views
                         ChapterPicker.Title = "Выберите главу";
                         ParagraphPicker.Title = "Сначала выберите главу";
                     }
-
                 }
             }
             catch (Exception ex)
@@ -71,6 +71,7 @@ namespace Physics.Views
                 {
                     if (chapters != null)
                     {
+                        idChapter = selectedChapter.IdChapter;
                         // Загрузка параграфов из выбранной главы в третий Picker
                         List<Chapter> paragraphsInChapter = chapters.FindAll(c => c.ParentId == selectedChapter.IdChapter);
                         ParagraphPicker.ItemsSource = paragraphsInChapter;
