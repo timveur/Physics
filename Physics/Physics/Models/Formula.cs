@@ -10,8 +10,7 @@ namespace Physics.Models
 
         public string PhotoFormula { get; set; }
 
-        public int? ChapterId { get; set; }
+        public string TitleFormula { get; set; }
 
-        public virtual Chapter Chapter { get; set; }
     }
 }

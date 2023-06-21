@@ -1,21 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Physics.Views.LabPage">
+             x:Class="Physics.Views.LabPage" Title="Лаб. работы">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="LabsListView" BackgroundColor="#00836e" RowHeight="100" SeparatorColor="DeepSkyBlue">
+            <ListView x:Name="LabsListView" BackgroundColor="#00836e" SelectionMode="Single" RowHeight="70"  SeparatorColor="DarkSeaGreen">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <Button Text="{Binding TitleLabWork}" Clicked="OnButtonClicked" Grid.Column="0"/>
-                                <Label Text="{Binding DescriptionLabWork}" TextColor="Beige" IsVisible="False" Grid.Column="1"/>
+                                <Button Text="{Binding TitleLabWork}" Clicked="OnButtonClicked" ClassId="{Binding IdLabWorks}"
+                                        BackgroundColor="Transparent" CornerRadius="0" TextColor="Beige"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

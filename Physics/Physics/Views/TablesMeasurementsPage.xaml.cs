@@ -31,13 +31,23 @@ namespace Physics.Views
         /// <param name="e"></param>
         private async void OnItemClicked(object sender, System.EventArgs e)
         {
-            Button activeButton = sender as Button;
-            if (sender is Button button && button.BindingContext is TablesMeasurement selectedMeasurement)
-            {
-                string titleMeas = activeButton.Text;
-                int idMeas = Convert.ToInt32(activeButton.ClassId);
-                await Navigation.PushAsync(new MeasurementsPage(idMeas, titleMeas));
+            try
+            {   
+                Button activeButton = sender as Button;
+                if (sender is Button button && button.BindingContext is TablesMeasurement selectedMeasurement)
+                {
+                    string titleMeas = activeButton.Text;
+                    int idMeas = Convert.ToInt32(activeButton.ClassId);
+                    await Navigation.PushAsync(new MeasurementsPage(idMeas, titleMeas));
+                }
+
             }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ошибка", "Возникла непредвиденная ошибка.", "OK");
+                throw; ;
+            }
+           
         }
     }
 }

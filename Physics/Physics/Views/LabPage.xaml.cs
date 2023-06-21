@@ -2,6 +2,7 @@
 using Physics.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,6 @@ namespace Physics.Views
     public partial class LabPage : ContentPage
     {
         public List<LabWork> listLabWorks { get; set; }
-        private Label currentLabel;
         public LabPage()
         {
             InitializeComponent();
@@ -23,41 +23,23 @@ namespace Physics.Views
             LabsListView.ItemsSource = listLabWorks;
         }
 
-        private void OnButtonClicked(object sender, EventArgs e)
+        private async void OnButtonClicked(object sender, EventArgs e)
         {
-            Button clickedButton = (Button)sender;
-            Label label = (Label)clickedButton.Parent.FindByName("label");
-
-            // Сворачивание предыдущего label
-            if (currentLabel != null && currentLabel.IsVisible)
+            try
             {
-                currentLabel.IsVisible = false;
+                Button activeButton = sender as Button;
+                int idLabWorks = Convert.ToInt32(activeButton.ClassId);
+                LabWork selectedLabWork = listLabWorks.FirstOrDefault(x => x.IdLabWorks == idLabWorks);
+                string descriptionLabWorks = selectedLabWork.DescriptionLabWork;
+                await DisplayAlert(activeButton.Text, descriptionLabWorks, "OK"); 
+               
             }
-
-            // Показать/скрыть текущий label
-            if (currentLabel != label)
+            catch (Exception ex)
             {
-                label.IsVisible = true;
-                currentLabel = label;
-
-                //// Получение ID нажатого элемента
-                //var labWork = (LabWork)clickedButton.BindingContext;
-                //int idLabWork = labWork.IdLabWorks;
-
-                //// Получение данных по idLabWork и обновление списка
-                //UpdateListLabWorks(idLabWork);
-            }
-            else
-            {
-                currentLabel = null;
+                await DisplayAlert("Ошибка", "Возникла непредвиденная ошибка.", "OK");
+                throw;
             }
         }
 
-        //private void UpdateListLabWorks(int idLabWork)
-        //{
-        //    // Получение данных из API по idLabWork и обновление списка
-        //    listLabWorks = LabWorksController.GetLabWorksById(idLabWork);
-        //    LabsListView.ItemsSource = listLabWorks;
-        //}
     }
 }

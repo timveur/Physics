@@ -14,8 +14,6 @@ namespace Physics.Models
 
         public string NameFile { get; set; }
 
-        public virtual ICollection<Formula> Formulas { get; set; } = new List<Formula>();
-
         public string FullParagraphPath 
         { get 
             { return "../Assets/" + NameFile; }

@@ -18,9 +18,18 @@ namespace Physics.Views
         public MeasurementsPage(int idTablesMeasurements, string titleMeasure)
         {
             InitializeComponent();
-            listMeasurements = MeasurementsController.GetMeasurementsFromTablesId(idTablesMeasurements);
-            MeasurementsListView.ItemsSource = listMeasurements;
-            Title = titleMeasure;
+            try
+            {
+                listMeasurements = MeasurementsController.GetMeasurementsFromTablesId(idTablesMeasurements);
+                MeasurementsListView.ItemsSource = listMeasurements;
+                Title = titleMeasure;
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Ошибка", "Возникла непредвиденная ошибка.", "OK");
+                throw;
+            }
+           
 
         }
     }
