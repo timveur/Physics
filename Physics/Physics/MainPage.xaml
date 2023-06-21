@@ -10,7 +10,7 @@
         <ResourceDictionary>
             <Style x:Key="InactiveTabStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="#006666" />
-                <Setter Property="Shell.TitleColor" Value="#00e8e8" />
+                <Setter Property="Shell.TitleColor" Value="#ffffff" />
             </Style>
         </ResourceDictionary>
     </Shell.Resources>

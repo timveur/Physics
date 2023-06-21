@@ -15,7 +15,7 @@ namespace Physics.Models
         public string PhotoFormulaPath
         {
             get
-            { return "http://188.234.244.32/0_mobile/Img/" + PhotoFormula; }
+            { return "http://188.234.244.32/0_mobile/img/" + PhotoFormula; }
         }
 
     }

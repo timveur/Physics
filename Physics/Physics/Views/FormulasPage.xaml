@@ -5,18 +5,18 @@
              Title="Формулы">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="FormulasListView" BackgroundColor="#00836e" RowHeight="150" SeparatorColor="DeepSkyBlue">
+            <ListView x:Name="FormulasListView" BackgroundColor="#00836e" RowHeight="100" SeparatorColor="DeepSkyBlue" IsEnabled="False">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ContentView Padding="15,5,0,0">
+                            <ContentView >
                                 <Grid VerticalOptions="CenterAndExpand">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="7*"/>
                                     </Grid.RowDefinitions>
-                                    <Label Text="{Binding TitleFormula}" TextColor="Beige" VerticalOptions="StartAndExpand" FontSize="16"/>
-                                    <Image Grid.Row="1" Source="{Binding PhotoFormulaPath}" VerticalOptions="EndAndExpand"/>
+                                    <Label Text="{Binding TitleFormula}" TextColor="White" VerticalOptions="StartAndExpand" FontSize="18" Padding="15,5,0,0"/>
+                                    <Image Grid.Row="1" Source="{Binding PhotoFormulaPath}" VerticalOptions="StartAndExpand" WidthRequest="80" HeightRequest="80" HorizontalOptions="CenterAndExpand"/>
                                 </Grid>
                             </ContentView>
 
