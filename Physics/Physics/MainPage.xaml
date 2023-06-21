@@ -1,24 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Physics.MainPage">
+       xmlns:views="clr-namespace:Physics.Views"
+             x:Class="Physics.MainPage"
+       x:Name="myShell"
+       Title="{Binding CurrentItem.CurrentItem.Title, Source={x:Reference myShell}}">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
-
-</ContentPage>
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="InactiveTabStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#006666" />
+                <Setter Property="Shell.TitleColor" Value="#00e8e8" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+    <TabBar Route="tabbar">
+        <Tab Title="Теория" Icon="theory.png">
+            <ShellContent Style="{StaticResource InactiveTabStyle}" ContentTemplate="{DataTemplate views:TheoryPage}" />
+        </Tab>
+        <Tab Title="Лаб. работы" Icon="lab.png">
+            <ShellContent Style="{StaticResource InactiveTabStyle}" ContentTemplate="{DataTemplate views:LabPage}" />
+        </Tab>
+        <Tab Title="Формулы" Icon="formulas.png">
+            <ShellContent Style="{StaticResource InactiveTabStyle}" ContentTemplate="{DataTemplate views:FormulasPage}" />
+        </Tab>
+        <Tab Title="Таблицы" Icon="tables.png">
+            <ShellContent Style="{StaticResource InactiveTabStyle}" ContentTemplate="{DataTemplate views:TablesMeasurementsPage}" />
+        </Tab>
+    </TabBar>
+</Shell>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Physics.Views.TheoryPage" Title="Теория">
+    <ContentPage.Content>
+        <StackLayout Background="#00836e">
+            <Picker x:Name="SectionPicker" Title="Выберите раздел" ItemDisplayBinding="{Binding TitleChapter}" TextColor="Black" Background="DarkSeaGreen" SelectedIndexChanged="SectionPicker_SelectedIndexChanged"/>
+            <Picker x:Name="ChapterPicker" Title="Выберите главу" TextColor="Black" ItemDisplayBinding="{Binding TitleChapter}" SelectedIndexChanged="ChapterPicker_SelectedIndexChanged"/>
+            <Picker x:Name="ParagraphPicker" Title="Выберите параграф" ItemDisplayBinding="{Binding TitleChapter}" TextColor="Black" SelectedIndexChanged="ParagraphPicker_SelectedIndexChanged"></Picker>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

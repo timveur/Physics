@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Physics.Views.TablesMeasurementsPage"
+             Title="Таблицы измерений">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="TablesMeasurementsListView"
+                     BackgroundColor="#00836e"
+                       SelectionMode="Single" SeparatorColor="DarkSeaGreen">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Button Text="{Binding DisplayTitle}" Clicked="OnItemClicked" CommandParameter="{Binding .}" ClassId="{Binding IdTablesMeasure}"
+                                         BackgroundColor="#00836e" CornerRadius="0" TextColor="Beige"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

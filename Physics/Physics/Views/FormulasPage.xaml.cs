@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace Physics
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace Physics.Views
 {
-    public partial class MainPage : Shell
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class FormulasPage : ContentPage
     {
-        public MainPage()
+        public FormulasPage()
         {
             InitializeComponent();
         }
