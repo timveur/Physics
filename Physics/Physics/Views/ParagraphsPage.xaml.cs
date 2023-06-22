@@ -19,7 +19,7 @@ namespace Physics.Views
 			try
 			{
                 Title = titleParagraph;
-                string htmlFilePath = "http://188.234.244.32/0_mobile/" + fileName;
+                string htmlFilePath = Controllers.Manager.RootUrlServer + fileName;
                 // Загрузка файла в WebView
                 ParagraphsWebView.Source = new UrlWebViewSource { Url = htmlFilePath };
                 // Установка свойств WebView

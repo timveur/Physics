@@ -32,11 +32,9 @@ namespace Physics.Controllers
         /// <returns></returns>
         public static List<Chapter> GetChaptersFirst()
         {
-
             List<Chapter> chapters = GetChapters();
             List<Chapter> sections = chapters.Where(x => x.ParentId == 0).ToList();
             return sections;
-
         }
 
         /// <summary>

@@ -12,6 +12,7 @@ namespace Physics.Models
         public string UnitOfMeasure { get; set; }
 
         public virtual ICollection<Measurement> Measurements { get; set; } = new List<Measurement>();
+
         public string DisplayTitle
         {
             get

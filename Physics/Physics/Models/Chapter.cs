@@ -13,11 +13,6 @@ namespace Physics.Models
         public string TitleChapter { get; set; } = null;
 
         public string NameFile { get; set; }
-
-        public string FullParagraphPath 
-        { get 
-            { return "../Assets/" + NameFile; }
-        }
         
     }
 }
