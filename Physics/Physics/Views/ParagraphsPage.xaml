@@ -6,7 +6,7 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout>
-                    <WebView x:Name="ParagraphsWebView" Margin="-70, -60, 0, 0" />
+                    <WebView x:Name="ParagraphsWebView"/>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
